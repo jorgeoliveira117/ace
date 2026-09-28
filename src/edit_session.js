@@ -298,10 +298,8 @@ class EditSession {
                     action: "removeFolds",
                     folds:  removedFolds
                 }, this.mergeUndoDeltas);
-                this.mergeUndoDeltas = true;
             }
             this.$undoManager.add(delta, this.mergeUndoDeltas);
-            this.mergeUndoDeltas = true;
 
             this.$informUndoManager.schedule();
         }
@@ -471,8 +469,7 @@ class EditSession {
      * starts a new group in undo history
      **/
     markUndoGroup() {
-        if (this.$syncInformUndoManager)
-            this.$syncInformUndoManager();
+        this.getUndoManager().startNewGroup();
     }
 
     /**

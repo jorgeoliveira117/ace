@@ -187,7 +187,7 @@ class Editor {
 
             shouldMerge = shouldMerge
                 && this.mergeNextCommand // previous command allows to coalesce with
-                && (!/\s/.test(text) || /\s/.test(prev.args)); // previous insertion was of same type
+                && (/\s/.test(text) || /\s/.test(prev.args)); // previous insertion was of same type
 
             this.mergeNextCommand = true;
         } else {
